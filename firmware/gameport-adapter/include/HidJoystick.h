@@ -44,6 +44,11 @@ public:
     }
 
     const auto packet = createPacket(*m_joystick);
+
+    //const auto &m_description = m_joystick->getDescription();
+    //const auto &m_state = m_joystick->getState();
+    //log("Buttons: %x", m_state.buttons);
+
     m_hidDevice.SendReport(DEVICE_ID, packet.data, packet.size);
     return true;
   }

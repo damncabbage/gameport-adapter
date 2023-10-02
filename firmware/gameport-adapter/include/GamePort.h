@@ -17,11 +17,17 @@
 #pragma once
 
 // Simple GamePort pins to Arduino pins mapper.
-// GamePort pins <1>, <8>, <9> are already connected to "VCC" via the PCB
+// GamePort pins <1>, <8>, <9> are already connected to "VCC".
+// GamePort pins <4>, <5> are already connected to GND.
 template <int I>
 struct GamePort {
   enum { pin = -1 };
 };
+
+// Pin mapping; format: 'Gameport Pin [Board Pin]'
+//
+// 1[V]   2[10]   3[A0]     4[G]      5[G]     6[A3]      7[15]      8[V]
+//    9[V]    10[16]   11[A1]   12[A8]   13[A2]     14[15]     15[A9]
 
 // Analog: Button #1
 // Digital (e.g. SW3D): Clock
@@ -40,14 +46,14 @@ struct GamePort<3> {
 // Analog: Joystick1 Y-Axis 
 template <>
 struct GamePort<6> {
-  enum { pin = A7 };
+  enum { pin = A3 };
 };
 
 // Analog: Button #2
 // Digital (e.g. SW3D): Data 0
 template <>
 struct GamePort<7> {
-  enum { pin = 8 };
+  enum { pin = 15 };
 };
 
 // Analog: Button #3
@@ -66,24 +72,24 @@ struct GamePort<11> {
 // Analog: Midi OUT
 template <>
 struct GamePort<12> {
-  enum { pin = 5 };
+  enum { pin = A8 };
 };
 
 // Analog: Joystick2 Y-Axis 
 template <>
 struct GamePort<13> {
-  enum { pin = A6 };
+  enum { pin = A2 };
 };
 
 // Analog: Button #4
 // Digital (e.g. SW3D): Data 2
 template <>
 struct GamePort<14> {
-  enum { pin = 7 };
+  enum { pin = 15 };
 };
 
 // Analog: Midi IN
 template <>
 struct GamePort<15> {
-  enum { pin = 9 };
+  enum { pin = A9 };
 };

@@ -27,15 +27,17 @@
 
 static Joystick *createJoystick() {
 
-  const auto sw1 = DigitalInput<14, true>{};
-  const auto sw2 = DigitalInput<15, true>{};
-  const auto sw3 = DigitalInput<20, true>{};
-  const auto sw4 = DigitalInput<21, true>{};
+  const auto sw1 = DigitalInput<5, true>{};
+  const auto sw2 = DigitalInput<4, true>{};
+  const auto sw3 = DigitalInput<3, true>{};
+  const auto sw4 = DigitalInput<2, true>{};
 
   // Give some time to setup the input
   delay(1);
 
   const auto sw = !sw4 << 3 | !sw3 << 2 | !sw2 << 1 | !sw1;
+
+  log("Switches: %x", sw);
 
   switch (sw) {
     case 0b0001:
