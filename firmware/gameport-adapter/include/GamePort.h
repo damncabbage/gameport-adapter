@@ -27,7 +27,7 @@ struct GamePort {
 // Pin mapping; format: 'Gameport Pin [Board Pin]'
 //
 // 1[V]   2[10]   3[A0]     4[G]      5[G]     6[A3]      7[15]      8[V]
-//    9[V]    10[16]   11[A1]   12[A8]   13[A2]     14[15]     15[A9]
+//    9[V]    10[16]   11[A1]   12[A8]   13[A2]     14[14]     15[A9]
 
 // Analog: Button #1
 // Digital (e.g. SW3D): Clock
@@ -85,7 +85,7 @@ struct GamePort<13> {
 // Digital (e.g. SW3D): Data 2
 template <>
 struct GamePort<14> {
-  enum { pin = 15 };
+  enum { pin = 14 };
 };
 
 // Analog: Midi IN
