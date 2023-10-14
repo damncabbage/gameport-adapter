@@ -20,6 +20,7 @@
 #include "CHFlightstickPro.h"
 #include "CHF16CombatStick.h"
 #include "GenericJoystick.h"
+#include "GeniusF2000.h"
 #include "GrIP.h"
 #include "Logitech.h"
 #include "Sidewinder.h"
@@ -58,6 +59,8 @@ static Joystick *createJoystick() {
       return new GrIP;
     case 0b1001:
       return new Logitech;
+    case 0b1010:
+      return new GeniusF2000;
     default:
       return new GenericJoystick<2,2>;
   }
